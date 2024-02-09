@@ -1,29 +1,28 @@
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class HelloWorldTest {
 
 
     @Test
     public void helloNoName() {
-        assertEquals("Hello, World!", HelloWorld.hello(""));
-        assertEquals("Hello, World!", HelloWorld.hello(null));
+        assertThat(HelloWorld.hello("")).isEqualTo("Hello, World!");
+        assertThat(HelloWorld.hello(null)).isEqualTo("Hello, World!");
     }
 
     @Test
     public void emptyStringIsComparedByValue() {
-        assertEquals("Hello, World!", HelloWorld.hello(new String("")));
+        assertThat(HelloWorld.hello(new String(""))).isEqualTo("Hello, World!");
     }
     
     @Test
     public void helloSampleName() {
-        assertEquals("Hello, Alice!", HelloWorld.hello("Alice"));
+        assertThat(HelloWorld.hello("Alice")).isEqualTo("Hello, Alice!");
     }
 
     @Test
     public void helloAnotherSampleName() {
-        assertEquals("Hello, Bob!", HelloWorld.hello("Bob"));
+        assertThat(HelloWorld.hello("Bob")).isEqualTo("Hello, Bob!");
     }
 }
